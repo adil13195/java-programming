@@ -1,5 +1,9 @@
 package day48_constructors_static;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+
 public class CustomerObjects {
     public static void main(String[] args) {
         Customer cs1 =new Customer();
@@ -12,5 +16,38 @@ public class CustomerObjects {
         Customer cs3 = new Customer("Adil",1234);
         System.out.println(cs2);
         System.out.println(cs3);
+
+        //array of Customer
+        Customer[] todaysCustomers = {cs1,cs2,cs3,new Customer("Bashir",449)};
+
+        //arraylist of Customer objects
+        List<Customer> customerList = new ArrayList<>();
+        customerList.add(cs1);
+        customerList.add(cs2);
+        customerList.add(cs3);
+        customerList.add(new Customer("Bashir",449));
+        customerList.add(new Customer("Adil",1234));
+
+        //Print info of first customer object in array and arraylist
+        System.out.println(todaysCustomers[0].toString());
+        System.out.println(customerList.get(0).toString());
+
+        System.out.println(customerList); //print toSting() info of all Customer objects
+
+        System.out.println("------ FOR LOOP -----");
+        for (int i=0; i<customerList.size();i++){
+            System.out.println(customerList.get(i));
+        }
+
+        System.out.println("---- FOR EACH LOOP -----");
+        for (Customer eachCustomer : customerList){
+            System.out.println(eachCustomer);
+        }
+
+        //print only name of Customer in the list
+        System.out.println("----- NAME OF CUSTOMER -----");
+        customerList.forEach(each -> System.out.println(each.getName()));
+
+
     }
 }
